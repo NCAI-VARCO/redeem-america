@@ -55,15 +55,15 @@ export default function AdminDashboardPage() {
           <>
             <div style={styles.stats}>
               <div style={styles.statCard}>
-                <strong>{data.total}</strong>
+                <strong style={styles.statNumber}>{data.total}</strong>
                 <span>Total</span>
               </div>
               <div style={styles.statCard}>
-                <strong>{data.used}</strong>
+                <strong style={styles.statNumber}>{data.used}</strong>
                 <span>Used</span>
               </div>
               <div style={styles.statCard}>
-                <strong>{data.available}</strong>
+                <strong style={styles.statNumber}>{data.available}</strong>
                 <span>Available</span>
               </div>
             </div>
@@ -82,10 +82,12 @@ export default function AdminDashboardPage() {
                   {data.codes.map((code) => (
                     <tr key={code.id}>
                       <td style={styles.td}>
-                        {code.used ? "Used" : "Available"}
+                        <span style={code.used ? styles.used : styles.available}>
+                          {code.used ? "Used" : "Available"}
+                        </span>
                       </td>
                       <td style={styles.td}>
-                        <a href={code.url} target="_blank" rel="noreferrer">
+                        <a href={code.url} target="_blank" rel="noreferrer" style={styles.link}>
                           {code.url}
                         </a>
                       </td>
@@ -108,6 +110,7 @@ const styles = {
     minHeight: "100vh",
     background: "#f6f7fb",
     padding: "32px",
+    color: "#111827", // 🔥 전체 글씨 검정
     fontFamily:
       '-apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif',
   },
@@ -118,6 +121,8 @@ const styles = {
   title: {
     fontSize: "28px",
     marginBottom: "20px",
+    color: "#111827",
+    fontWeight: 700,
   },
   card: {
     display: "flex",
@@ -134,6 +139,7 @@ const styles = {
     borderRadius: "12px",
     border: "1px solid #ddd",
     fontSize: "14px",
+    color: "#111827",
   },
   button: {
     padding: "12px 18px",
@@ -146,6 +152,7 @@ const styles = {
   },
   error: {
     color: "#dc2626",
+    marginBottom: "16px",
   },
   stats: {
     display: "grid",
@@ -161,6 +168,11 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     gap: "6px",
+    color: "#111827",
+  },
+  statNumber: {
+    fontSize: "22px",
+    fontWeight: 700,
   },
   tableWrap: {
     background: "#fff",
@@ -178,10 +190,24 @@ const styles = {
     textAlign: "left",
     borderBottom: "1px solid #eee",
     padding: "12px",
+    color: "#374151",
   },
   td: {
     borderBottom: "1px solid #eee",
     padding: "12px",
+    color: "#111827",
     wordBreak: "break-all",
+  },
+  link: {
+    color: "#2563eb",
+    textDecoration: "none",
+  },
+  used: {
+    color: "#dc2626",
+    fontWeight: 600,
+  },
+  available: {
+    color: "#16a34a",
+    fontWeight: 600,
   },
 };

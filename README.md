@@ -55,6 +55,8 @@ https://example.com/redeem/BBB
 npm run import:codes
 ```
 
+혹은 admin 페이지에서 한 번에 여러개 입력 가능
+
 ## 4. Vercel 배포
 
 1. 이 폴더를 GitHub 저장소에 업로드
@@ -75,6 +77,8 @@ npm run import:codes
 ```text
 https://너의-vercel-도메인.vercel.app/claim
 ```
+
+dashboard 페이지에서 사용된 코드, 사용 일시 등 확인 가능
 
 ## 6. 운영상 주의
 
